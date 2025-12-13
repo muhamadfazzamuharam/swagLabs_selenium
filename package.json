@@ -1,9 +1,10 @@
 {
   "name": "swaglabs",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "loginTest.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx mocha test/loginTest.mjs"
   },
   "keywords": [],
   "author": "",
@@ -11,6 +12,9 @@
   "description": "",
   "devDependencies": {
     "mocha": "^11.7.5",
-    "selenium-webdriver": "^4.33.0"
+    "selenium-webdriver": "^4.39.0"
+  },
+  "dependencies": {
+    "expect.js": "^0.3.1"
   }
 }
