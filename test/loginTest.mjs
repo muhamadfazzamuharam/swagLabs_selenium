@@ -1,47 +1,52 @@
-import { By, Builder, until } from 'selenium-webdriver';
+import { Builder, until } from 'selenium-webdriver';
 import expect from 'expect.js';
+import { LoginPage } from '../pages/loginPage.mjs';
+import { AlertHelper } from '../helper/alertHelper.mjs';
+import chrome from 'selenium-webdriver/chrome.js';
 
-const url = 'https://www.saucedemo.com';
 
 describe('Login Page Test', function () {
     this.timeout(20000);
+    let options;
     let driver;
+    let loginPage;
+    const url = 'https://www.saucedemo.com';
 
     before(async function () {
+        options = new chrome.Options();
+        options.addArguments('--incognito');
+        
         driver = await new Builder()
-            .forBrowser('chrome')
-            .build();
+            .forBrowser('chrome').setChromeOptions(options).build();
+        loginPage = new LoginPage(driver);
+    });
 
+    beforeEach(async function () {
         await driver.get(url);
+        await loginPage.validatePage(url);
     });
 
     after(async function () {
         await driver.quit();
     });
 
-    it('Login successfully!', async function () {
+    it('Login with valid credential', async function () {
+        const username = 'standard_user';
+        const password = 'secret_sauce';
+        
+        await loginPage.login(username, password);
+        const expectedUrl = `${url}/inventory`;
+        await loginPage.validatePage(expectedUrl);
 
-        const locators = [
-            By.id('user-name'),
-            By.id('password'),
-            By.id('login-button')
-        ];
+        await loginPage.logout();
+    });
 
-        const elements = [];
-        for (const locator of locators) {
-            const el = await driver.wait(
-                until.elementLocated(locator),
-                5000
-            );
-            elements.push(el);
-        }
-
-        await elements[0].sendKeys('standard_user');
-        await elements[1].sendKeys('secret_sauce');
-        await elements[2].click();
-
-        await driver.wait(until.urlContains('/inventory'), 5000);
-        const currentUrl = await driver.getCurrentUrl();
-        expect(currentUrl).to.contain('/inventory');
+    it('Login with invalid credential (empty username)', async function () {
+        const username = '';
+        const password = 'secret_sauce';
+        await loginPage.login(username, password);
+        
+        const expectedErrorMessage = 'Epic sadface: Username is required';
+        await loginPage.validateErrorMessage(expectedErrorMessage);
     });
 });
