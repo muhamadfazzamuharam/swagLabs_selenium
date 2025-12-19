@@ -1,0 +1,258 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-19T08:30:42.585Z",
+    "end": "2025-12-19T08:30:45.242Z",
+    "duration": 2657,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "61b50bca-1a17-4878-b6a8-075734f6d871",
+      "title": "",
+      "fullFile": "E:\\Learn\\Selenium\\swagLabs_selenium\\test\\loginTest.mjs",
+      "file": "\\test\\loginTest.mjs",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aabbb9fa-466f-4806-b1a2-57230cf266ed",
+          "title": "Login Page Test",
+          "fullFile": "E:\\Learn\\Selenium\\swagLabs_selenium\\test\\loginTest.mjs",
+          "file": "\\test\\loginTest.mjs",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Login Page Test\"",
+              "fullTitle": "Login Page Test \"before all\" hook in \"Login Page Test\"",
+              "timedOut": false,
+              "duration": 622,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "options = new chrome.Options();\noptions.addArguments('--incognito', '--start-maximized');\n\ndriver = await new Builder()\n    .forBrowser('chrome').setChromeOptions(options).build();",
+              "err": {},
+              "uuid": "5f8bb195-b50f-4e5a-8d58-85a9d0389ec2",
+              "parentUUID": "aabbb9fa-466f-4806-b1a2-57230cf266ed",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook in \"Login Page Test\"",
+              "fullTitle": "Login Page Test \"before each\" hook in \"Login Page Test\"",
+              "timedOut": false,
+              "duration": 28,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(config.base_url);\nloginPage = new LoginPage(driver);\nawait loginPage.validatePage(config.base_url);",
+              "err": {},
+              "uuid": "f754c120-ef9d-4184-95ef-0535b340d9c9",
+              "parentUUID": "aabbb9fa-466f-4806-b1a2-57230cf266ed",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Login Page Test\"",
+              "fullTitle": "Login Page Test \"after all\" hook in \"Login Page Test\"",
+              "timedOut": false,
+              "duration": 57,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "0d0e73c1-c21a-4551-82d5-934e97d0d8a3",
+              "parentUUID": "aabbb9fa-466f-4806-b1a2-57230cf266ed",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "1. Test login with valid credential",
+              "fullTitle": "Login Page Test 1. Test login with valid credential",
+              "timedOut": false,
+              "duration": 705,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const username = 'standard_user';\nconst password = 'secret_sauce';\n\nawait loginPage.login(username, password);\nconst expectedUrl = `${url}/inventory`;\nawait loginPage.validatePage(expectedUrl);\nawait loginPage.logout();",
+              "err": {},
+              "uuid": "3e50ce75-6604-419f-893b-02cd6854326e",
+              "parentUUID": "aabbb9fa-466f-4806-b1a2-57230cf266ed",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2. Test login with empty username",
+              "fullTitle": "Login Page Test 2. Test login with empty username",
+              "timedOut": false,
+              "duration": 142,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const username = '';\nconst password = 'secret_sauce';\nawait loginPage.login(username, password);\n\nconst expectedErrorMessage = 'Epic sadface: Username is required';\nawait loginPage.validateErrorMessage(expectedErrorMessage);",
+              "err": {},
+              "uuid": "dbcadbae-3967-4d21-be5d-4e5a49f25d17",
+              "parentUUID": "aabbb9fa-466f-4806-b1a2-57230cf266ed",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3. Test login with empty password",
+              "fullTitle": "Login Page Test 3. Test login with empty password",
+              "timedOut": false,
+              "duration": 157,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const username = 'standard_user';\nconst password = '';\nawait loginPage.login(username, password);\n\nconst expectedErrorMessage = 'Epic sadface: Password is required';\nawait loginPage.validateErrorMessage(expectedErrorMessage);",
+              "err": {},
+              "uuid": "de547334-8d29-438b-bf40-2e1609e1b6e3",
+              "parentUUID": "aabbb9fa-466f-4806-b1a2-57230cf266ed",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "4. Test login with wrong username",
+              "fullTitle": "Login Page Test 4. Test login with wrong username",
+              "timedOut": false,
+              "duration": 134,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const username = 'user';\nconst password = 'secret_sauce';\nawait loginPage.login(username, password);\n\nconst expectedErrorMessage = 'Epic sadface: Username and password do not match any user in this service';\nawait loginPage.validateErrorMessage(expectedErrorMessage);",
+              "err": {},
+              "uuid": "a40cc3da-ec9f-4d2d-912c-4909bfff5ef9",
+              "parentUUID": "aabbb9fa-466f-4806-b1a2-57230cf266ed",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "5. Test login with wrong password",
+              "fullTitle": "Login Page Test 5. Test login with wrong password",
+              "timedOut": false,
+              "duration": 134,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const username = 'standard_user';\nconst password = 'secret';\nawait loginPage.login(username, password);\n\nconst expectedErrorMessage = 'Epic sadface: Username and password do not match any user in this service';\nawait loginPage.validateErrorMessage(expectedErrorMessage);",
+              "err": {},
+              "uuid": "5c9d62f3-4413-4570-935e-bee00bc42f8b",
+              "parentUUID": "aabbb9fa-466f-4806-b1a2-57230cf266ed",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "6. Test login with locked out user",
+              "fullTitle": "Login Page Test 6. Test login with locked out user",
+              "timedOut": false,
+              "duration": 139,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const username = 'locked_out_user';\nconst password = 'secret_sauce';\nawait loginPage.login(username, password);\n\nconst expectedErrorMessage = 'Epic sadface: Sorry, this user has been locked out.';\nawait loginPage.validateErrorMessage(expectedErrorMessage);",
+              "err": {},
+              "uuid": "33850d79-f3b6-4aea-ac7a-a1d6418ea3d6",
+              "parentUUID": "aabbb9fa-466f-4806-b1a2-57230cf266ed",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3e50ce75-6604-419f-893b-02cd6854326e",
+            "dbcadbae-3967-4d21-be5d-4e5a49f25d17",
+            "de547334-8d29-438b-bf40-2e1609e1b6e3",
+            "a40cc3da-ec9f-4d2d-912c-4909bfff5ef9",
+            "5c9d62f3-4413-4570-935e-bee00bc42f8b",
+            "33850d79-f3b6-4aea-ac7a-a1d6418ea3d6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1411,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 20000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.5"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "report",
+        "reportFilename": "[status]_[datetime]-report",
+        "timestamp": "longDate",
+        "quite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

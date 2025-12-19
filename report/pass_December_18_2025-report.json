@@ -1,0 +1,167 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 0,
+    "passes": 0,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-18T09:42:48.142Z",
+    "end": "2025-12-18T09:42:49.280Z",
+    "duration": 1138,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "6ab1c279-4f95-4f88-acb6-7885004e78f3",
+      "title": "",
+      "fullFile": "E:\\Learn\\Selenium\\swagLabs_selenium\\test\\inventoryTest.mjs",
+      "file": "\\test\\inventoryTest.mjs",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9c2cb0cb-e652-4143-b8cb-52ef44b12f78",
+          "title": "Inventory Page Test",
+          "fullFile": "E:\\Learn\\Selenium\\swagLabs_selenium\\test\\inventoryTest.mjs",
+          "file": "\\test\\inventoryTest.mjs",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Inventory Page Test\"",
+              "fullTitle": "Inventory Page Test \"before all\" hook in \"Inventory Page Test\"",
+              "timedOut": false,
+              "duration": 62,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = new Builder().forBrowser('chrome').setIeOptions(options).build();",
+              "err": {},
+              "uuid": "1d852794-1c5b-4337-ad5b-2998dcb83742",
+              "parentUUID": "9c2cb0cb-e652-4143-b8cb-52ef44b12f78",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook for \"Test\"",
+              "fullTitle": "Inventory Page Test \"before each\" hook for \"Test\"",
+              "timedOut": false,
+              "duration": 985,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(config.base_url);\nawait inventoryPage.navigateToInventoryPage();",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'wait')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'wait')\n    at LoginPage.inputUsername (file:///E:/Learn/Selenium/swagLabs_selenium/pages/loginPage.mjs:19:45)\n    at LoginPage.login (file:///E:/Learn/Selenium/swagLabs_selenium/pages/loginPage.mjs:45:16)\n    at InventoryPage.navigateToInventoryPage (file:///E:/Learn/Selenium/swagLabs_selenium/pages/inventoryPage.mjs:15:21)\n    at Context.<anonymous> (file:///E:/Learn/Selenium/swagLabs_selenium/test/inventoryTest.mjs:18:29)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)",
+                "diff": null
+              },
+              "uuid": "f56af498-2902-431b-aaad-ca22ebdc603c",
+              "parentUUID": "9c2cb0cb-e652-4143-b8cb-52ef44b12f78",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Inventory Page Test\"",
+              "fullTitle": "Inventory Page Test \"after all\" hook in \"Inventory Page Test\"",
+              "timedOut": false,
+              "duration": 60,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "616db780-e1f1-4899-8dda-39fc2757d09d",
+              "parentUUID": "9c2cb0cb-e652-4143-b8cb-52ef44b12f78",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Test",
+              "fullTitle": "Inventory Page Test Test",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "9668c7f9-b55a-4115-b3bc-b12994831694",
+              "parentUUID": "9c2cb0cb-e652-4143-b8cb-52ef44b12f78",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [
+            "9668c7f9-b55a-4115-b3bc-b12994831694"
+          ],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.5"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "regression_report",
+        "reportFilename": "[status]_[datetime]-report",
+        "timestamp": "longDate",
+        "quite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

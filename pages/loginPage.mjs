@@ -1,18 +1,18 @@
 import { By, until } from 'selenium-webdriver';
 import expect from 'expect.js';
+import { BasePage } from './basePage.mjs';
 
 export class LoginPage {
   constructor(driver) {
+    if (!driver) {
+      throw new Error('Driver is undefined in LoginPage');
+    };
     this.driver = driver;
   };
 
   async validatePage(expectedUrl) {
     const actualUrl = await this.driver.getCurrentUrl();
     expect(actualUrl).contain(expectedUrl);
-
-    if (!actualUrl.includes(expectedUrl)) {
-      throw new Error('You are on the wrong page!');
-    };
   };
 
   async inputUsername(username) {
@@ -52,6 +52,7 @@ export class LoginPage {
       until.elementLocated(By.id('react-burger-menu-btn')),
       5000
     );
+    await this.driver.wait(until.elementIsVisible(hamburgerMenu), 5000);
     await hamburgerMenu.click();
 
     const logoutButton = await this.driver.wait(
