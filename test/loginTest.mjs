@@ -38,16 +38,12 @@ describe('Login Page Test', function () {
 
   it('Login with empty username', async function () {
     await loginPage.login('', 'secret_sauce');
-    await loginPage.validateErrorMessage(
-      'Epic sadface: Username is required'
-    );
+    await loginPage.validateErrorMessage('Epic sadface: Username is required');
   });
 
   it('Login with empty password', async function () {
     await loginPage.login('standard_user', '');
-    await loginPage.validateErrorMessage(
-      'Epic sadface: Password is required'
-    );
+    await loginPage.validateErrorMessage('Epic sadface: Password is required');
   });
 
   it('Login with wrong username', async function () {

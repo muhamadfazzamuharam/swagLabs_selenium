@@ -1,0 +1,183 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-21T11:02:40.054Z",
+    "end": "2025-12-21T11:02:45.418Z",
+    "duration": 5364,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fa0ddba3-8847-43eb-805c-78cd2ad54af6",
+      "title": "",
+      "fullFile": "E:\\Learn\\Selenium\\swagLabs_selenium\\test\\inventoryTest.mjs",
+      "file": "\\test\\inventoryTest.mjs",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8d411b5b-c61d-4db8-9327-df78bf33bd2f",
+          "title": "Inventory Page Test",
+          "fullFile": "E:\\Learn\\Selenium\\swagLabs_selenium\\test\\inventoryTest.mjs",
+          "file": "\\test\\inventoryTest.mjs",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Inventory Page Test\"",
+              "fullTitle": "Inventory Page Test \"before all\" hook in \"Inventory Page Test\"",
+              "timedOut": false,
+              "duration": 3057,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const options = new chrome.Options();\noptions.addArguments('--incognito', '--start-maximized');\ndriver = new Builder()\n  .forBrowser('chrome')\n  .setChromeOptions(options)\n  .build();",
+              "err": {},
+              "uuid": "ee4de373-16f0-4857-a2a5-22ab6e326b8c",
+              "parentUUID": "8d411b5b-c61d-4db8-9327-df78bf33bd2f",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"before each\" hook in \"Inventory Page Test\"",
+              "fullTitle": "Inventory Page Test \"before each\" hook in \"Inventory Page Test\"",
+              "timedOut": false,
+              "duration": 2043,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(config.base_url);\ninventoryPage = new InventoryPage(driver);\nawait inventoryPage.navigateToInventoryPage();",
+              "err": {},
+              "uuid": "f7b4bce4-8585-42b2-8ada-134c1116b7ea",
+              "parentUUID": "8d411b5b-c61d-4db8-9327-df78bf33bd2f",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Inventory Page Test\"",
+              "fullTitle": "Inventory Page Test \"after all\" hook in \"Inventory Page Test\"",
+              "timedOut": false,
+              "duration": 80,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "56c0b547-232d-4ba2-8447-5eb130c23f06",
+              "parentUUID": "8d411b5b-c61d-4db8-9327-df78bf33bd2f",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "a348734f-3582-48ea-9187-5d2552a34d90",
+              "title": "",
+              "fullFile": "E:\\Learn\\Selenium\\swagLabs_selenium\\test\\inventoryTest.mjs",
+              "file": "\\test\\inventoryTest.mjs",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Add random products to cart",
+                  "fullTitle": "Inventory Page Test  Add random products to cart",
+                  "timedOut": false,
+                  "duration": 154,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const itemsToAddCount = _.sample([1, 2, 3, 4, 5, 6]);\nconst totalProducts = await inventoryPage.getInventoryItems();\nconst availableIndexes = [...Array(totalProducts.length).keys()];\nconsole.log(availableIndexes);\nconst selectedIndexes = _.sampleSize(availableIndexes, itemsToAddCount);\nawait inventoryPage.addProductsByIndexes(selectedIndexes);\nawait inventoryPage.validateCartBadgeCount(itemsToAddCount);",
+                  "err": {},
+                  "uuid": "04657ee5-3be8-4c60-8d3e-18279c39cfe2",
+                  "parentUUID": "a348734f-3582-48ea-9187-5d2552a34d90",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "04657ee5-3be8-4c60-8d3e-18279c39cfe2"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 154,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.5"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "report",
+        "reportFilename": "",
+        "reportTitle": "Test Report - 21/12/2025, 18.02",
+        "timestamp": "longDate",
+        "quite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

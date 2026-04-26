@@ -10,7 +10,7 @@ export class LoginPage extends BasePage {
     this.passwordInput = By.id('password');
     this.loginButton = By.id('login-button');
     this.errorMessage = By.css('[data-test="error"]');
-  };
+  }
 
   async login(username, password) {
     await this.click(this.usernameInput);
@@ -20,10 +20,10 @@ export class LoginPage extends BasePage {
     await (await this.waitForElement(this.passwordInput)).sendKeys(password);
 
     await this.click(this.loginButton);
-  };
+  }
 
   async validateErrorMessage(expectedMessage) {
     const actualMessage = await this.getText(this.errorMessage);
     expect(actualMessage).eql(expectedMessage);
-  };
+  }
 }
